@@ -3,6 +3,7 @@ package AutomationQA.AutomationDemo.Util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -66,4 +67,10 @@ public class SauceDemo {
 		Assert.assertEquals(Overview, "Checkout: Overview", "Page title is not as expected!");
 	}
 
+	  @AfterClass
+	    public void tearDown() {
+	        if (driver != null) {
+	            driver.quit();
+	        }
+	    }
 }
